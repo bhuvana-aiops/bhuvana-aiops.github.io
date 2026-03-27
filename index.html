@@ -1,1 +1,573 @@
-<h1>HELLO</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhuvana Rao Ponugoti | Senior DevOps Engineer</title>
+  <meta name="description" content="Senior DevOps Engineer and Site Reliability Engineer focused on Kubernetes, AWS, Azure, Terraform, CI/CD, observability, and AI platform operations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#f8fafc; --bg2:#fff; --card:#fff; --line:#e2e8f0; --text:#1e293b; --muted:#64748b;
+      --accent:#2563eb; --accent2:#0f766e; --tag:#eff6ff; --tagline:#bfdbfe; --tagtext:#1d4ed8;
+      --nav:rgba(248,250,252,.92); --shadow:0 10px 35px rgba(15,23,42,.08);
+    }
+    body.dark {
+      --bg:#0f172a; --bg2:#111827; --card:#1e293b; --line:rgba(148,163,184,.18); --text:#e2e8f0; --muted:#94a3b8;
+      --accent:#22d3ee; --accent2:#10b981; --tag:rgba(34,211,238,.08); --tagline:rgba(34,211,238,.22); --tagtext:#67e8f9;
+      --nav:rgba(15,23,42,.9); --shadow:0 14px 40px rgba(0,0,0,.35);
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:Inter,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+    a { color:var(--accent); text-decoration:none; }
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:20; height:56px; display:flex; align-items:center; justify-content:space-between;
+      padding:0 6%; backdrop-filter:blur(12px); background:var(--nav); border-bottom:1px solid var(--line);
+    }
+    .nav-logo { font:500 13px "JetBrains Mono",monospace; color:var(--accent); }
+    .nav-right, .nav-links, .hero-actions, .stats, .contact-links { display:flex; align-items:center; }
+    .nav-right { gap:18px; }
+    .nav-links { gap:18px; list-style:none; }
+    .nav-links a { color:var(--muted); font-size:13px; font-weight:600; }
+    .nav-links a:hover { color:var(--accent); }
+    .theme-wrap { display:flex; align-items:center; gap:8px; }
+    .theme-label { font-size:12px; color:var(--muted); }
+    .theme-btn { width:36px; height:20px; border:none; border-radius:999px; background:var(--line); position:relative; cursor:pointer; }
+    .theme-btn::before { content:""; position:absolute; top:3px; left:3px; width:14px; height:14px; border-radius:50%; background:var(--accent); transition:transform .2s; }
+    body.dark .theme-btn::before { transform:translateX(16px); }
+    .section { padding:58px 6%; }
+    .container { max-width:1000px; margin:0 auto; }
+    .label { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--accent); font-weight:800; margin-bottom:8px; }
+    .title { font-size:clamp(1.4rem,3vw,1.9rem); margin-bottom:24px; }
+    .fade { opacity:0; transform:translateY(18px); transition:opacity .5s ease, transform .5s ease; }
+    .fade.in { opacity:1; transform:none; }
+    #hero { padding:96px 6% 48px; background:var(--bg2); border-bottom:1px solid var(--line); }
+    .hero { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:1.2fr .8fr; gap:36px; align-items:center; }
+    .eyebrow { font:500 12px "JetBrains Mono",monospace; color:var(--accent); margin-bottom:10px; }
+    .name { font-size:clamp(2.2rem,6vw,3.5rem); line-height:1.05; font-weight:800; margin-bottom:10px; }
+    .name span { background:linear-gradient(135deg,#3b82f6,#14b8a6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .hero-title { color:var(--muted); font-size:1rem; margin-bottom:14px; }
+    .hero-title strong { color:var(--accent2); }
+    .hero-summary { color:var(--muted); font-size:14px; max-width:580px; margin-bottom:20px; }
+    .hero-actions { gap:12px; flex-wrap:wrap; }
+    .btn { display:inline-flex; padding:10px 18px; border-radius:10px; font-size:13px; font-weight:700; }
+    .btn.primary { background:var(--accent); color:#fff; box-shadow:var(--shadow); }
+    .btn.secondary { border:1px solid var(--line); color:var(--text); background:transparent; }
+    .stats { gap:24px; flex-wrap:wrap; border-top:1px solid var(--line); margin-top:24px; padding-top:20px; }
+    .stat b { display:block; font-size:1.6rem; color:var(--accent); }
+    .stat span { font-size:11px; color:var(--muted); }
+    .hero-cards { display:grid; gap:10px; }
+    .hero-card, .panel, .acc-item, .mini-card, .chat-window { background:var(--card); border:1px solid var(--line); box-shadow:var(--shadow); }
+    .hero-card { padding:12px 14px; border-radius:12px; font-size:13px; font-weight:700; }
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+    .about-text { color:var(--muted); font-size:14px; margin-bottom:18px; }
+    .rows { display:grid; gap:8px; }
+    .row { display:grid; grid-template-columns:80px 1fr; gap:10px; padding:8px 0; border-bottom:1px solid var(--line); font-size:13px; }
+    .row:last-child { border-bottom:none; }
+    .row .k { color:var(--muted); text-transform:uppercase; font-size:11px; font-weight:800; letter-spacing:.8px; }
+    .skill-group { margin-bottom:16px; }
+    .skill-group h3 { font-size:11px; color:var(--muted); letter-spacing:1.4px; text-transform:uppercase; margin-bottom:8px; }
+    .tags { display:flex; flex-wrap:wrap; gap:6px; }
+    .tag { background:var(--tag); border:1px solid var(--tagline); color:var(--tagtext); border-radius:999px; padding:6px 10px; font-size:12px; font-weight:700; }
+    .acc-item { border-radius:14px; overflow:hidden; margin-bottom:14px; }
+    .acc-head { display:flex; justify-content:space-between; gap:16px; padding:18px 20px; cursor:pointer; }
+    .acc-title { font-size:16px; font-weight:800; }
+    .acc-role { font-size:13px; color:var(--accent2); font-weight:700; }
+    .acc-meta { font-size:12px; color:var(--muted); margin-top:4px; }
+    .acc-body { max-height:0; overflow:hidden; transition:max-height .35s ease; border-top:1px solid transparent; }
+    .acc-item.open .acc-body { max-height:1400px; border-top-color:var(--line); }
+    .acc-content { padding:18px 20px 20px; }
+    .proj + .proj { margin-top:18px; }
+    .proj h4 { font-size:13px; margin-bottom:8px; }
+    .bullets { padding-left:18px; color:var(--muted); font-size:13.5px; }
+    .creds { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .col-title { font-size:11px; color:var(--muted); letter-spacing:1.4px; text-transform:uppercase; font-weight:800; margin-bottom:12px; }
+    .mini-card { border-radius:12px; padding:16px; margin-bottom:12px; }
+    .mini-card h4 { font-size:14px; margin-bottom:4px; }
+    .mini-card p { font-size:13px; color:var(--muted); }
+    .chip { display:inline-block; margin-top:10px; border-radius:999px; padding:5px 8px; background:var(--tag); border:1px solid var(--tagline); color:var(--tagtext); font-size:11px; font-weight:700; }
+    .contact { max-width:1000px; margin:0 auto 40px; padding:24px; border-radius:18px; background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; display:grid; grid-template-columns:1fr auto; gap:18px; }
+    .contact p { color:rgba(255,255,255,.88); font-size:14px; }
+    .contact-links { flex-direction:column; gap:10px; }
+    .contact-links a, .contact-links span { color:#fff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.18); border-radius:10px; padding:10px 12px; font-size:13px; }
+    footer { text-align:center; color:var(--muted); padding:0 6% 30px; font-size:12px; }
+    .chat-fab { position:fixed; right:24px; bottom:24px; z-index:25; border:none; border-radius:999px; background:var(--accent); color:#fff; padding:12px 16px; font-weight:800; cursor:pointer; box-shadow:var(--shadow); }
+    .chat-window { position:fixed; right:24px; bottom:78px; z-index:26; width:min(360px,calc(100vw - 28px)); border-radius:16px; overflow:hidden; display:none; }
+    .chat-window.open { display:block; }
+    .chat-header, .chat-input-row { padding:14px; border-bottom:1px solid var(--line); }
+    .chat-header { display:flex; align-items:center; justify-content:space-between; }
+    .chat-header b { display:block; font-size:14px; }
+    .chat-header span { font-size:12px; color:var(--muted); }
+    .chat-close { border:none; background:transparent; color:var(--muted); font-size:18px; cursor:pointer; }
+    .chat-messages { max-height:280px; overflow:auto; padding:14px; background:var(--bg2); }
+    .msg { display:flex; gap:10px; margin-bottom:12px; }
+    .avatar { width:28px; height:28px; border-radius:50%; display:grid; place-items:center; background:var(--bg); border:1px solid var(--line); font-size:11px; font-weight:800; }
+    .bubble { padding:10px 12px; border-radius:12px; border:1px solid var(--line); background:var(--card); font-size:13px; }
+    .msg.user { justify-content:flex-end; }
+    .msg.user .avatar { order:2; background:var(--accent); color:#fff; border-color:var(--accent); }
+    .msg.user .bubble { background:var(--accent); color:#fff; border-color:var(--accent); }
+    .sugs { display:flex; flex-wrap:wrap; gap:8px; padding:12px 14px 0; }
+    .sugs button { border:1px solid var(--line); background:var(--bg2); color:var(--text); border-radius:999px; padding:7px 10px; font-size:12px; cursor:pointer; }
+    .chat-input-row { display:grid; grid-template-columns:1fr auto; gap:8px; border-bottom:none; }
+    .chat-input { border:1px solid var(--line); background:var(--bg2); color:var(--text); border-radius:10px; padding:10px 12px; font:inherit; }
+    .chat-send { border:none; border-radius:10px; background:var(--accent); color:#fff; padding:0 14px; font-weight:800; cursor:pointer; }
+    .print-only { display:none; }
+    @media (max-width:820px) {
+      .hero, .grid-2, .creds, .contact { grid-template-columns:1fr; }
+      .nav-links { display:none; }
+    }
+    @media print {
+      :root {
+        --bg:#fff; --bg2:#fff; --card:#fff; --line:#dbe4ee; --text:#111827; --muted:#4b5563;
+        --accent:#1d4ed8; --accent2:#0f766e; --tag:#f8fbff; --tagline:#d7e7ff; --tagtext:#1d4ed8;
+        --nav:#fff; --shadow:none;
+      }
+      body { background:#fff; font-size:12px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      nav, #hero, #about-skills, #experience, #creds, #contact, footer, .chat-fab, .chat-window { display:none !important; }
+      .print-only { display:block; }
+      .resume-print { color:#111827; }
+      .resume-head { border-bottom:2px solid #cbd5e1; padding-bottom:10px; margin-bottom:12px; }
+      .resume-head h1 { font-size:26px; line-height:1.1; margin-bottom:4px; }
+      .resume-sub { font-size:13px; color:#334155; font-weight:700; margin-bottom:6px; }
+      .resume-contact { font-size:11px; color:#475569; }
+      .resume-sec { margin-bottom:10px; }
+      .resume-sec h2 { font-size:11px; letter-spacing:1.8px; text-transform:uppercase; color:#1d4ed8; margin-bottom:6px; }
+      .resume-sec p, .resume-sec li, .resume-sec div { font-size:10.5px; line-height:1.34; }
+      .resume-cols { display:grid; grid-template-columns:1fr; gap:6px; }
+      .resume-job { margin-bottom:10px; break-inside:avoid; page-break-inside:avoid; }
+      .resume-job-head { display:grid; grid-template-columns:1fr auto; gap:8px; margin-bottom:3px; font-size:11px; }
+      .resume-job-head strong { font-size:12px; }
+      .resume-meta { color:#475569; }
+      .resume-print ul { padding-left:18px; margin:4px 0 0; }
+      .resume-print li { margin-bottom:2px; }
+      a[href]::after { content:none !important; }
+      @page { size: A4; margin: 0.3in; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-logo">bhuvana@platform:~$</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#about-skills">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#creds">Credentials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="theme-wrap">
+        <span class="theme-label" id="themeLabel">Light</span>
+        <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Senior DevOps Engineer and Site Reliability Engineer</div>
+        <h1 class="name"><span>Bhuvana Rao</span><br>Ponugoti</h1>
+        <p class="hero-title"><strong>Cloud DevOps | SRE | Kubernetes | AWS and Azure</strong></p>
+        <p class="hero-summary">Senior Cloud DevOps and Site Reliability Engineer with 5+ years of experience designing, automating, operating, and supporting large-scale production systems across AWS and Azure. I build Kubernetes platforms, automate CI/CD, improve observability, and support enterprise AI and ML workloads.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#experience">View Experience</a>
+          <a class="btn secondary" href="mailto:ponugotibhuvanarao@gmail.com">Get In Touch</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>5+</b><span>Years Experience</span></div>
+          <div class="stat"><b>3</b><span>Certifications</span></div>
+          <div class="stat"><b>2</b><span>Cloud Platforms</span></div>
+          <div class="stat"><b>30%</b><span>MTTD Improvement</span></div>
+        </div>
+      </div>
+      <div class="hero-cards fade">
+        <div class="hero-card">AWS, Azure, Linux, Windows Server</div>
+        <div class="hero-card">Kubernetes, AKS, EKS, Docker, Helm, Istio</div>
+        <div class="hero-card">Terraform, OpenTofu, GitHub Actions, Azure DevOps, Jenkins</div>
+        <div class="hero-card">Datadog, Splunk, Prometheus, Grafana, Dynatrace</div>
+        <div class="hero-card">PyTorch, TensorFlow, LLM deployment, AI platform operations</div>
+        <div class="hero-card">Python, PowerShell, Bash, Java, YAML, JSON</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about-skills" class="section">
+    <div class="container">
+      <div class="grid-2 fade">
+        <div>
+          <div class="label">About</div>
+          <h2 class="title">Who I Am</h2>
+          <p class="about-text">I work across cloud infrastructure, platform engineering, and production reliability. My recent experience spans AWS and Azure Kubernetes platforms, Terraform-driven infrastructure, CI/CD automation, observability, incident response, and operational support for enterprise AI and ML systems.</p>
+          <div class="rows">
+            <div class="row"><div class="k">Location</div><div>Frisco, TX</div></div>
+            <div class="row"><div class="k">Email</div><div><a href="mailto:ponugotibhuvanarao@gmail.com">ponugotibhuvanarao@gmail.com</a></div></div>
+            <div class="row"><div class="k">Phone</div><div>352-973-2300</div></div>
+            <div class="row"><div class="k">LinkedIn</div><div><a href="https://www.linkedin.com/in/bhuvana-rao-ponugoti-a85285302/" target="_blank" rel="noopener">bhuvana-rao-ponugoti-a85285302</a></div></div>
+            <div class="row"><div class="k">Current</div><div>Kroger | Sr. Cloud DevOps Engineer / MLOps</div></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="label">Expertise</div>
+          <h2 class="title">Technical Skills</h2>
+          <div class="skill-group">
+            <h3>Cloud Platforms</h3>
+            <div class="tags"><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">Linux</span><span class="tag">Windows Server</span><span class="tag">vSphere</span></div>
+          </div>
+          <div class="skill-group">
+            <h3>Infrastructure and Containers</h3>
+            <div class="tags"><span class="tag">Terraform</span><span class="tag">OpenTofu</span><span class="tag">Kubernetes</span><span class="tag">AKS</span><span class="tag">EKS</span><span class="tag">Docker</span><span class="tag">Helm</span><span class="tag">Istio</span></div>
+          </div>
+          <div class="skill-group">
+            <h3>CI / CD and Automation</h3>
+            <div class="tags"><span class="tag">GitHub Actions</span><span class="tag">Azure DevOps</span><span class="tag">Jenkins</span><span class="tag">Ansible</span><span class="tag">GitOps</span><span class="tag">OpenShift</span></div>
+          </div>
+          <div class="skill-group">
+            <h3>Observability and AI / MLOps</h3>
+            <div class="tags"><span class="tag">Datadog</span><span class="tag">Splunk</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">Dynatrace</span><span class="tag">OpenTelemetry</span><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">LLM Deployment</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="label">Career</div>
+      <h2 class="title">Work Experience</h2>
+
+      <div class="acc-item open fade" data-acc>
+        <div class="acc-head" onclick="toggleAcc(this)">
+          <div>
+            <div class="acc-title">Kroger</div>
+            <div class="acc-role">Sr. Cloud DevOps Engineer / MLOps</div>
+            <div class="acc-meta">November 2024 - Present | Frisco, TX</div>
+          </div>
+          <div>▼</div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-content">
+            <div class="proj">
+              <h4>AI Cart | Conversational AI Shopping Assistant</h4>
+              <ul class="bullets">
+                <li>Architected CI/CD pipelines for the AI Cart application to automate build, testing, and deployment of conversational AI services.</li>
+                <li>Containerized the core AI agent and supporting services using Docker and managed deployments on Kubernetes for availability and scalability.</li>
+                <li>Supported vector-backed retrieval workflows that map natural language requests to relevant product catalog items.</li>
+                <li>Handled secure LLM credentials and sensitive configuration using Kubernetes secrets and secure workload patterns.</li>
+                <li>Supported the conversational flow from user chat to cart review and final order placement.</li>
+              </ul>
+            </div>
+            <div class="proj">
+              <h4>Platform Engineering and Reliability</h4>
+              <ul class="bullets">
+                <li>Designed and operated enterprise-scale cloud infrastructure using Terraform across AWS and Azure environments.</li>
+                <li>Led operations of production Kubernetes platforms with autoscaling, ingress, networking, workload isolation, and capacity planning.</li>
+                <li>Delivered end-to-end observability using Datadog, Dynatrace, Prometheus, Grafana, and Splunk.</li>
+                <li>Defined and monitored SLIs and SLOs, reducing mean time to detection by 30 percent.</li>
+                <li>Enabled PyTorch and TensorFlow workloads on containerized Kubernetes platforms for training and inference.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item fade" data-acc>
+        <div class="acc-head" onclick="toggleAcc(this)">
+          <div>
+            <div class="acc-title">SRS Distributions</div>
+            <div class="acc-role">DevOps Engineer</div>
+            <div class="acc-meta">September 2023 - November 2024 | Texas</div>
+          </div>
+          <div>▼</div>
+        </div>
+        <div class="acc-body"><div class="acc-content"><ul class="bullets">
+          <li>Managed Azure infrastructure using Terraform across networking, compute, storage, security, and API Management resources.</li>
+          <li>Developed CI/CD pipelines in Azure DevOps to automate infrastructure and application deployments.</li>
+          <li>Managed AKS deployments using Helm and improved operational stability across dev, QA, and production.</li>
+          <li>Implemented monitoring and alerting using Datadog and Splunk aligned with SLI and SLO practices.</li>
+        </ul></div></div>
+      </div>
+
+      <div class="acc-item fade" data-acc>
+        <div class="acc-head" onclick="toggleAcc(this)">
+          <div>
+            <div class="acc-title">Florence Healthcare</div>
+            <div class="acc-role">Site Reliability Engineer</div>
+            <div class="acc-meta">February 2023 - May 2023 | Texas</div>
+          </div>
+          <div>▼</div>
+        </div>
+        <div class="acc-body"><div class="acc-content"><ul class="bullets">
+          <li>Assessed application and database readiness for cloud migration and operational reliability.</li>
+          <li>Executed lift-and-shift migrations of virtual machines to Azure.</li>
+          <li>Defined and monitored SLIs and SLOs using Azure Monitor metrics and logs.</li>
+          <li>Secured and load-balanced applications using Azure Application Gateway and WAF.</li>
+        </ul></div></div>
+      </div>
+
+      <div class="acc-item fade" data-acc>
+        <div class="acc-head" onclick="toggleAcc(this)">
+          <div>
+            <div class="acc-title">Data Economy</div>
+            <div class="acc-role">Associate Consultant</div>
+            <div class="acc-meta">January 2019 - August 2021 | Hyderabad, India</div>
+          </div>
+          <div>▼</div>
+        </div>
+        <div class="acc-body"><div class="acc-content"><ul class="bullets">
+          <li>Implemented CI/CD pipelines using Jenkins for Java, Spring Boot, and Node.js microservices.</li>
+          <li>Automated deployment and configuration management using Ansible Tower.</li>
+          <li>Supported containerization and orchestration using Docker, Kubernetes, OpenShift, and Amazon EKS.</li>
+          <li>Provisioned and managed AWS infrastructure including VPC, EC2, IAM, RDS, S3, Route 53, and Auto Scaling.</li>
+        </ul></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="creds" class="section">
+    <div class="container">
+      <div class="label">Credentials</div>
+      <h2 class="title">Certifications and Education</h2>
+      <div class="creds fade">
+        <div>
+          <div class="col-title">Certifications</div>
+          <div class="mini-card"><h4>Azure Solutions Architect Expert</h4><p>Microsoft | AZ-305</p><span class="chip">Active Certification</span></div>
+          <div class="mini-card"><h4>Azure DevOps Engineer Expert</h4><p>Microsoft | AZ-400</p><span class="chip">Active Certification</span></div>
+          <div class="mini-card"><h4>Certified Kubernetes Administrator</h4><p>CNCF | CKA</p><span class="chip">Kubernetes Certified</span></div>
+        </div>
+        <div>
+          <div class="col-title">Focus Areas</div>
+          <div class="mini-card"><h4>Platform Reliability</h4><p>Production Kubernetes operations, SLI and SLO tracking, incident response, disaster recovery, and capacity planning.</p><span class="chip">SRE and Platform</span></div>
+          <div class="mini-card"><h4>Cloud Automation</h4><p>Terraform automation, RBAC and IAM, secrets management, CI/CD standardization, and cloud-native delivery guardrails.</p><span class="chip">DevOps</span></div>
+          <div class="mini-card"><h4>AI / ML Enablement</h4><p>Support for enterprise AI and ML workloads using PyTorch, TensorFlow, LLM deployment, and scalable container platforms.</p><span class="chip">MLOps</span></div>
+        </div>
+        <div>
+          <div class="col-title">Education</div>
+          <div class="mini-card"><h4>Master of Science, Information Sciences</h4><p>University of Texas at Arlington | Arlington, TX</p></div>
+          <div class="mini-card"><h4>Bachelor of Engineering, Computer Science and Engineering</h4><p>Osmania University | Hyderabad, India</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <div>
+        <h2>Let's Connect</h2>
+        <p>Open to Senior DevOps, Site Reliability, Platform Engineering, Cloud Infrastructure, and MLOps-focused roles.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:ponugotibhuvanarao@gmail.com">ponugotibhuvanarao@gmail.com</a>
+        <a href="tel:+13529732300">352-973-2300</a>
+        <a href="https://www.linkedin.com/in/bhuvana-rao-ponugoti-a85285302/" target="_blank" rel="noopener">LinkedIn</a>
+        <span>Frisco, TX</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="print-only">
+    <div class="resume-print">
+      <div class="resume-head">
+        <h1>Bhuvana Rao Ponugoti</h1>
+        <div class="resume-sub">Senior DevOps Engineer | Site Reliability Engineer | Kubernetes | AWS and Azure | Platform Engineering</div>
+        <div class="resume-contact">Frisco, TX | 352-973-2300 | ponugotibhuvanarao@gmail.com | https://www.linkedin.com/in/bhuvana-rao-ponugoti-a85285302/</div>
+      </div>
+
+      <div class="resume-sec">
+        <h2>Summary</h2>
+        <p>Senior Cloud DevOps and Site Reliability Engineer with 5+ years of experience designing, automating, operating, and supporting large-scale production systems and business-critical applications across multi-cloud AWS and Azure environments. Expert in Kubernetes (AKS/EKS), Terraform-based infrastructure as code, CI/CD automation, and production reliability engineering supporting distributed microservices. Proven success improving platform resilience and enabling enterprise AI/ML and Generative AI platforms supporting PyTorch, TensorFlow, and LLM-based workloads in cloud-native environments. Strong background in observability, incident response, and secure multi-cloud architecture supporting AWS services such as EKS, EC2, IAM, VPC, S3, KMS, and cloud-native AI infrastructure.</p>
+      </div>
+
+      <div class="resume-sec">
+        <h2>Skills</h2>
+        <div class="resume-cols">
+          <div><strong>Cloud Platforms:</strong> AWS, Azure, Linux (SUSE, RHEL, Ubuntu), Windows Server, On-premises (vSphere)</div>
+          <div><strong>Infrastructure and Containers:</strong> Terraform, OpenTofu, Kubernetes (AKS, EKS), Docker, Service Mesh (Istio), Helm</div>
+          <div><strong>CI/CD and Automation:</strong> GitHub Actions, Azure DevOps Pipelines, Jenkins, Ansible, OpenShift, GitLab CI concepts, GitOps workflows</div>
+          <div><strong>MLOps:</strong> Azure Machine Learning, containerized ML workloads, PyTorch, TensorFlow, LLM deployment, AI pipeline automation, model lifecycle enablement</div>
+          <div><strong>Observability and Reliability:</strong> Azure Monitor, Datadog, Dynatrace, Splunk, Prometheus, Grafana, OpenTelemetry, Log Analytics (KQL), Application Insights, SLI/SLO Monitoring</div>
+          <div><strong>Languages:</strong> Python, PowerShell, Java, Bash/Shell, YAML, JSON, C#, C/C++</div>
+          <div><strong>Security and DevSecOps:</strong> RBAC/IAM, Secrets Management, Policy as Code, Azure Key Vault, AWS Secrets Manager, Vault, WAF</div>
+          <div><strong>Tools and Other:</strong> VSCode, Copilot, Confluence, Bitbucket, JIRA, ServiceNow, JFrog Artifactory, Snyk, Git, GitHub, Agile/Scrum, Kanban, On-call operations, disaster recovery planning</div>
+        </div>
+      </div>
+
+      <div class="resume-sec">
+        <h2>Professional Experience</h2>
+
+        <div class="resume-job">
+          <div class="resume-job-head"><strong>Kroger | Sr. Cloud DevOps Engineer / MLOps</strong><span class="resume-meta">November 2024 - Present</span></div>
+          <ul>
+            <li>Designed and operated enterprise-scale cloud infrastructure using Terraform-based IaC, supporting multi-environment deployments aligned with AWS architectural patterns and scalable platform design principles.</li>
+            <li>Led operations of production Kubernetes platforms supporting automation and distributed application workloads, implementing autoscaling, networking, ingress routing, and secure workload isolation to ensure high availability.</li>
+            <li>Applied cloud-agnostic platform engineering practices transferable across AWS services including EKS, EC2 Auto Scaling, IAM, and S3-based architectures.</li>
+            <li>Architected and standardized CI/CD pipelines using Docker, Helm, and GitHub Actions to automate testing, validation, and deployment workflows across multiple environments.</li>
+            <li>Implemented cloud networking and load-balancing architectures aligned with VPC, ELB/ALB, and zero-trust networking principles.</li>
+            <li>Implemented RBAC/IAM policies and secure secrets management practices enforcing least-privilege access across Kubernetes workloads and cloud resources.</li>
+            <li>Designed secure workload identity and secrets management using patterns equivalent to AWS IAM roles, KMS, and Secrets Manager.</li>
+            <li>Developed event-driven ingestion pipelines using streaming and object storage architectures aligned with AWS Kinesis and S3 event-driven architectures, supporting near real-time ML scoring systems.</li>
+            <li>Delivered end-to-end observability using Datadog, Dynatrace, Prometheus, Grafana, and Splunk including distributed tracing and performance monitoring.</li>
+            <li>Defined and monitored SLIs/SLOs, managed service reliability targets, and supported error-budget driven operational improvements, reducing mean time to detection by 30%.</li>
+            <li>Identified and automated manual operational processes using Python and Bash scripting, reducing operational toil and improving system reliability.</li>
+            <li>Managed container registry lifecycle workflows aligned with AWS ECR practices, including image versioning and vulnerability management.</li>
+            <li>Led platform engineering and reliability initiatives for enterprise Kubernetes environments supporting multiple product teams across production systems.</li>
+            <li>Designed and operated scalable cloud infrastructure supporting production microservices and AI workloads.</li>
+            <li>Enabled scalable deployment and operationalization of ML workloads built using PyTorch and TensorFlow, enabling scalable training and inference workflows on containerized Kubernetes platforms.</li>
+            <li>Improved platform scalability and resilience through autoscaling and capacity planning strategies.</li>
+            <li>Optimized autoscaling strategies for cloud-native services resulting in approximately $1M annual cost savings.</li>
+            <li>Enabled enterprise AI/ML and Generative AI platforms deploying containerized LLM workloads integrated with secure cloud infrastructure, including AI Cart style conversational AI services.</li>
+            <li>Led incident response and root cause analysis while implementing resiliency improvements including backup, disaster recovery, and platform hardening for mission-critical workloads.</li>
+          </ul>
+        </div>
+
+        <div class="resume-job">
+          <div class="resume-job-head"><strong>SRS Distributions | DevOps Engineer</strong><span class="resume-meta">September 2023 - November 2024</span></div>
+          <ul>
+            <li>Managed and optimized Azure cloud infrastructure using Terraform, provisioning networking, compute, storage, security, and Azure API Management resources following Infrastructure-as-Code standards.</li>
+            <li>Developed, maintained, and enhanced CI/CD pipelines using Azure DevOps to automate infrastructure and application deployments across multiple environments.</li>
+            <li>Supported production deployments of Spring Boot APIs and React-based front-end applications, troubleshooting build, runtime, and dependency issues across CI/CD pipelines.</li>
+            <li>Managed Kubernetes (AKS) deployments using Helm charts, standardizing configuration, release automation, and operational stability across dev, QA, and production environments.</li>
+            <li>Integrated application logging pipelines using Azure Event Hub and Azure Storage, enabling centralized log ingestion for monitoring and alerting systems.</li>
+            <li>Administered Linux server environments supporting Kubernetes workloads, performing system configuration, performance tuning, and operational diagnostics for production systems.</li>
+            <li>Implemented monitoring and alerting using Datadog and Splunk aligned with SLI/SLO reliability practices to improve incident detection and service availability.</li>
+            <li>Developed PowerShell automation scripts to perform infrastructure validation and automated post-deployment operational checks.</li>
+            <li>Troubleshot issues related to Terraform provisioning, Kubernetes workloads, and CI/CD pipelines, reducing deployment failures and operational delays.</li>
+            <li>Monitored system availability, latency, and health, participating in on-call rotations, incident response, and change management.</li>
+            <li>Maintained Azure API Management, configuring inbound and outbound API policies.</li>
+            <li>Supported application build and deployment troubleshooting for .NET (C#) and C/C++ based services, assisting development teams in resolving build pipeline issues and runtime dependency problems.</li>
+            <li>Led Datadog integrations for .NET and Java APIs, including Datadog onboarding and alert migrations from Splunk.</li>
+            <li>Mentored team members and contributed to DevOps standards, documentation, and best practices.</li>
+          </ul>
+        </div>
+
+        <div class="resume-job">
+          <div class="resume-job-head"><strong>Florence Healthcare | Site Reliability Engineer</strong><span class="resume-meta">February 2023 - May 2023</span></div>
+          <ul>
+            <li>Assessed application and database readiness for cloud migration by scanning source code using Cloud Pilot, ensuring reliability and operational requirements were met.</li>
+            <li>Executed lift-and-shift migrations of virtual machines to Azure using agent-based migration and VMDK/OVA workflows, supporting production cutovers.</li>
+            <li>Provisioned and managed Azure IaaS and PaaS resources aligned with availability and reliability standards.</li>
+            <li>Defined and monitored SLIs and SLOs for critical services using Azure Monitor metrics and logs to maintain service reliability.</li>
+            <li>Configured proactive alerts for virtual machines and applications, reducing mean time to detection.</li>
+            <li>Supported incident response and root cause analysis for production issues, implementing corrective actions to reduce MTTR.</li>
+            <li>Secured and load-balanced applications using Azure Application Gateway (WAF) to improve availability and security.</li>
+          </ul>
+        </div>
+
+        <div class="resume-job">
+          <div class="resume-job-head"><strong>Data Economy | Associate Consultant</strong><span class="resume-meta">January 2019 - August 2021</span></div>
+          <ul>
+            <li>Implemented CI/CD pipelines using Jenkins to support continuous integration and delivery for Java, Spring Boot, and Node.js microservices.</li>
+            <li>Automated deployment and configuration management using Ansible Tower, reducing manual operational effort and improving deployment reliability.</li>
+            <li>Supported containerization and orchestration using Docker, Kubernetes, and OpenShift, including migrations to Amazon EKS using Helm.</li>
+            <li>Assisted development teams in containerizing C++, Java, and Node.js services, supporting build packaging and runtime configuration during Kubernetes deployments.</li>
+            <li>Managed Docker image build, tagging, and promotion workflows across environments.</li>
+            <li>Provisioned and managed AWS infrastructure using CloudFormation, including VPC, EC2, IAM, RDS, S3, Route 53, and Auto Scaling.</li>
+            <li>Assisted with on-prem to AWS migrations, including database migration to Amazon RDS (PostgreSQL) with performance tuning and optimization.</li>
+            <li>Integrated AWS Secrets Manager, Vault, and KMS to secure application secrets and enable encryption at rest.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resume-sec">
+        <h2>Certifications</h2>
+        <ul>
+          <li>Azure Solutions Architect Expert (AZ-305)</li>
+          <li>Azure DevOps Engineer Expert (AZ-400)</li>
+          <li>Certified Kubernetes Administrator (CKA)</li>
+        </ul>
+      </div>
+
+      <div class="resume-sec">
+        <h2>Education</h2>
+        <div><strong>University of Texas at Arlington</strong> | Master of Science, Information Sciences | Arlington, TX</div>
+        <div><strong>Osmania University</strong> | Bachelor of Engineering, Computer Science and Engineering | Hyderabad, India</div>
+      </div>
+    </div>
+  </section>
+
+  <footer><strong>Bhuvana Rao Ponugoti</strong> | Senior DevOps Engineer | Site Reliability Engineer | Frisco, TX</footer>
+
+  <button class="chat-fab" onclick="toggleChat()">Quick Chat</button>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header"><div><b>Bhuvana Rao</b><span>Portfolio assistant</span></div><button class="chat-close" onclick="toggleChat()">×</button></div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg"><div class="avatar">BR</div><div class="bubble">Ask about my cloud stack, AI Cart project, certifications, or the roles I am targeting.</div></div>
+    </div>
+    <div class="sugs">
+      <button onclick="askSuggested(this,0)">Core stack</button>
+      <button onclick="askSuggested(this,1)">AI Cart project</button>
+      <button onclick="askSuggested(this,2)">Certifications</button>
+      <button onclick="askSuggested(this,3)">Open to roles</button>
+    </div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chatInput" type="text" placeholder="Type a question" onkeydown="if(event.key==='Enter') sendChat()" />
+      <button class="chat-send" onclick="sendChat()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const dark = document.body.classList.toggle('dark');
+      document.getElementById('themeLabel').textContent = dark ? 'Dark' : 'Light';
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+    }
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+      document.getElementById('themeLabel').textContent = 'Dark';
+    }
+    function toggleAcc(head) {
+      const item = head.closest('[data-acc]');
+      const open = item.classList.contains('open');
+      document.querySelectorAll('[data-acc].open').forEach((el) => el.classList.remove('open'));
+      if (!open) item.classList.add('open');
+    }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade').forEach((el) => obs.observe(el));
+    const QA = [
+      { q:'Core stack', a:'My core stack includes AWS and Azure, Kubernetes with AKS and EKS, Terraform and OpenTofu for infrastructure as code, GitHub Actions and Azure DevOps for CI/CD, Datadog and Splunk for observability, and Python, PowerShell, and Bash for automation.' },
+      { q:'AI Cart project', a:'I support AI Cart as a conversational AI shopping assistant platform. The work includes CI/CD for AI services, Docker and Kubernetes deployments, vector-backed retrieval workflows, secure LLM credential handling, and production operations for the application stack.' },
+      { q:'Certifications', a:'I hold three certifications: Azure Solutions Architect Expert (AZ-305), Azure DevOps Engineer Expert (AZ-400), and Certified Kubernetes Administrator (CKA).' },
+      { q:'Open to roles', a:'I am targeting Senior DevOps Engineer, Site Reliability Engineer, Platform Engineer, Cloud Infrastructure Engineer, and MLOps-aligned opportunities.' }
+    ];
+    let chatOpen = false;
+    function toggleChat() { chatOpen = !chatOpen; document.getElementById('chatWindow').classList.toggle('open', chatOpen); }
+    function appendMsg(type, text) {
+      const box = document.getElementById('chatMessages');
+      const div = document.createElement('div');
+      div.className = 'msg' + (type === 'user' ? ' user' : '');
+      div.innerHTML = '<div class="avatar">' + (type === 'user' ? 'You' : 'BR') + '</div><div class="bubble">' + text + '</div>';
+      box.appendChild(div);
+      box.scrollTop = box.scrollHeight;
+    }
+    function askSuggested(btn, idx) {
+      btn.remove();
+      appendMsg('user', QA[idx].q);
+      setTimeout(() => appendMsg('bot', QA[idx].a), 300);
+    }
+    function sendChat() {
+      const input = document.getElementById('chatInput');
+      const q = input.value.trim();
+      if (!q) return;
+      input.value = '';
+      appendMsg('user', q);
+      const lower = q.toLowerCase();
+      let ans = 'For a detailed conversation, please reach out to me at <a href="mailto:ponugotibhuvanarao@gmail.com">ponugotibhuvanarao@gmail.com</a> or on <a href="https://www.linkedin.com/in/bhuvana-rao-ponugoti-a85285302/" target="_blank" rel="noopener">LinkedIn</a>.';
+      if (lower.match(/stack|skill|terraform|kubernetes|aws|azure|tool/)) ans = QA[0].a;
+      else if (lower.match(/ai|cart|project|llm|rag|vector/)) ans = QA[1].a;
+      else if (lower.match(/cert|cka|az-305|az-400/)) ans = QA[2].a;
+      else if (lower.match(/open|role|job|available|hire/)) ans = QA[3].a;
+      setTimeout(() => appendMsg('bot', ans), 350);
+    }
+  </script>
+</body>
+</html>
